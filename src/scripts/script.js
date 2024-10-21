@@ -16,10 +16,6 @@ function cos (){
     cal_view.value = Math.cos(cal_view.value);
 }
 
-function pow (){
-    cal_view.value = Math.pow(cal_view.value,3);
-}
-
 function sqrt (){
     cal_view.value = Math.sqrt(cal_view.value,2);
 }
@@ -45,4 +41,24 @@ function factorial (){
 
 function backspace (){
     cal_view.value = cal_view.value.substring(0, cal_view.value.length - 1);
+}
+
+// Power function that inserts the ^ symbol in the input field
+function pow() {
+    cal_view.value += "^";  // Display the ^ symbol
+}
+
+// Calculate result, including handling of the power (^) symbol
+function calculateResult() {
+    let expression = cal_view.value;
+
+    // Replace ^ with ** for proper exponentiation
+    expression = expression.replace(/\^/g, '**');
+
+    // Evaluate the expression
+    try {
+        cal_view.value = eval(expression);
+    } catch (e) {
+        cal_view.value = "Error";
+    }
 }

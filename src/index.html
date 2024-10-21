@@ -14,7 +14,9 @@
     </div>
     <div class="cal-keys">
         <div class="cal-row">
-            <button onclick="backspace()" class="clear-btn">CE</button>
+            <button onclick="backspace()" class="clear-btn">
+                <i class="fa-regular fa-delete-left"></i>
+            </button>
             <button onclick="factorial()">x!</button>
             <button class="cal-key">(</button>
             <button class="cal-key">)</button>
@@ -50,7 +52,7 @@
             <button onclick="pow()">x<sup>y</sup></button>
             <button class="cal-key">0</button>
             <button class="cal-key">.</button>
-            <button class="equal-btn" onclick="cal_view.value=eval(cal_view.value)">=</button>
+            <button class="equal-btn" onclick="calculateResult()">=</button>
             <button class="cal-key">+</button>
         </div>
     </div>
