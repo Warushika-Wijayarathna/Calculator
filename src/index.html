@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calculator</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+<div class="cal-container">
+    <div class="cal-screen">
+        <input id="cal-view" type="text" placeholder="0">
+    </div>
+    <div class="cal-keys">
+        <div class="cal-row">
+            <button onclick="backspace()" class="clear-btn">CE</button>
+            <button onclick="factorial()">x!</button>
+            <button class="cal-key">(</button>
+            <button class="cal-key">)</button>
+            <button class="cal-key">%</button>
+            <button class="clear-btn" onclick="cal_view.value=''">AC</button>
+        </div>
+        <div class="cal-row">
+            <button onclick="sin()">sin</button>
+            <button onclick="pi()">π</button>
+            <button class="cal-key">7</button>
+            <button class="cal-key">8</button>
+            <button class="cal-key">9</button>
+            <button class="cal-key">/</button>
+        </div>
+        <div class="cal-row">
+            <button onclick="cos()">cos</button>
+            <button onclick="log()">log</button>
+            <button class="cal-key">4</button>
+            <button class="cal-key">5</button>
+            <button class="cal-key">6</button>
+            <button class="cal-key">*</button>
+        </div>
+        <div class="cal-row">
+            <button onclick="tan()">tan</button>
+            <button onclick="sqrt()">√</button>
+            <button class="cal-key">1</button>
+            <button class="cal-key">2</button>
+            <button class="cal-key">3</button>
+            <button class="cal-key">-</button>
+        </div>
+        <div class="cal-row">
+            <button onclick="e()">e</button>
+            <button onclick="pow()">x<sup>y</sup></button>
+            <button class="cal-key">0</button>
+            <button class="cal-key">.</button>
+            <button class="equal-btn" onclick="cal_view.value=eval(cal_view.value)">=</button>
+            <button class="cal-key">+</button>
+        </div>
+    </div>
+</div>
+<script src="scripts/script.js"></script>
+</body>
+</html>
