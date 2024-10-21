@@ -119,14 +119,14 @@ $(document).ready(function() {
             try {
                 cal_view.val(eval(expression));
             } catch (e) {
-                cal_view.val("Error");
+                cal_view.val("!Error");
                 // Clear the error message after 3 seconds
                 setTimeout(function() {
                     cal_view.val('');
                 }, 3000); // Change the duration as needed
             }
         } else {
-            cal_view.val("Error");
+            cal_view.val("!Error");
             // Clear the error message after 3 seconds
             setTimeout(function() {
                 cal_view.val('');
