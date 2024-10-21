@@ -133,4 +133,15 @@ $(document).ready(function() {
             }, 2000); // Change the duration as needed
         }
     });
+
+    // Light/Dark mode toggle
+    $('#mode-toggle').on('change', function() {
+        if (this.checked) {
+            $('body').addClass('dark-mode');
+            $('.cal-container').addClass('dark-mode');
+        } else {
+            $('body').removeClass('dark-mode');
+            $('.cal-container').removeClass('dark-mode');
+        }
+    });
 });
