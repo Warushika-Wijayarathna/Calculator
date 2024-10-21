@@ -1,64 +1,136 @@
-var cal_view = document.getElementById("cal-view");
-var cal_key = document.querySelectorAll('.cal-key');
+$(document).ready(function() {
+    var cal_view = $("#cal-view");
 
-for(item of cal_key){
-    item.addEventListener('click', (e) => {
-        key_text= e.target.innerText;
-        cal_view.value += key_text;
-    })
-}
+    // Add click event to number buttons
+    $('.cal-key').on('click', function() {
+        var key_text = $(this).text();
+        cal_view.val(cal_view.val() + key_text);
+    });
 
-function sin (){
-    cal_view.value = Math.sin(cal_view.value);
-}
 
-function cos (){
-    cal_view.value = Math.cos(cal_view.value);
-}
+    // Define calculator functions
+    window.sin = function() {
+        cal_view.val(Math.sin(cal_view.val()));
+    };
 
-function sqrt (){
-    cal_view.value = Math.sqrt(cal_view.value,2);
-}
-function log (){
-    cal_view.value = Math.log(cal_view.value);
-}
-function pi (){
-    cal_view.value = 3.14159265359;
-}
+    window.cos = function() {
+        cal_view.val(Math.cos(cal_view.val()));
+    };
 
-function e (){
-    cal_view.value = 2.71828182846;
-}
+    window.tan = function() {
+        cal_view.val(Math.tan(cal_view.val()));
+    };
 
-function factorial (){
-    var num = cal_view.value;
-    var result = 1;
-    for (var i = 1; i <= num; i++){
-        result *= i;
+    window.sqrt = function() {
+        cal_view.val(Math.sqrt(cal_view.val()));
+    };
+
+    window.log = function() {
+        cal_view.val(Math.log(cal_view.val()));
+    };
+
+    window.pi = function() {
+        cal_view.val(3.14159265359);
+    };
+
+    window.e = function() {
+        cal_view.val(2.71828182846);
+    };
+
+    window.factorial = function() {
+        var num = parseInt(cal_view.val());
+        var result = 1;
+        for (var i = 1; i <= num; i++) {
+            result *= i;
+        }
+        cal_view.val(result);
+    };
+
+    $('#clear-btn').on('click', function() {
+        cal_view.val('');
+    });
+
+    $('#backspace-btn').on('click', function() {
+        cal_view.val(cal_view.val().substring(0, cal_view.val().length - 1));
+    });
+
+    // Power function
+    window.pow = function() {
+        cal_view.val(cal_view.val() + "^");
+    };
+
+    // Validate input
+    function validateInput(input) {
+        // Regular expression to check for allowed characters
+        const regex = /^[0-9+\-*/().^πsin|cos|tan|log|sqrt|e]*$/;
+
+        // Check for empty input
+        if (input.trim() === "") {
+            alert("Input cannot be empty!");
+            return false;
+        }
+
+        // Check for allowed characters
+        if (!regex.test(input)) {
+            alert("Invalid characters in input!");
+            return false;
+        }
+
+        // Check for balanced parentheses
+        let balance = 0;
+        for (let char of input) {
+            if (char === '(') balance++;
+            if (char === ')') balance--;
+            if (balance < 0) {
+                alert("Unmatched parentheses!");
+                return false;
+            }
+        }
+        if (balance !== 0) {
+            alert("Unmatched parentheses!");
+            return false;
+        }
+
+        // Prevent multiple operators in a row
+        if (/[\+\-*/^]{2,}/.test(input)) {
+            alert("Multiple operators in a row!");
+            return false;
+        }
+
+        // Prevent operator at the beginning or end
+        if (/^[+\-*/^]|[+\-*/^]$/.test(input)) {
+            alert("Invalid use of operators!");
+            return false;
+        }
+
+        return true;
     }
-    cal_view.value = result;
-}
 
-function backspace (){
-    cal_view.value = cal_view.value.substring(0, cal_view.value.length - 1);
-}
+    // Calculate result
+    $('#equal-btn').on('click', function() {
+        let expression = cal_view.val();
 
-// Power function that inserts the ^ symbol in the input field
-function pow() {
-    cal_view.value += "^";  // Display the ^ symbol
-}
+        // Replace ^ with ** for proper exponentiation
+        expression = expression.replace(/\^/g, '**');
 
-// Calculate result, including handling of the power (^) symbol
-function calculateResult() {
-    let expression = cal_view.value;
-
-    // Replace ^ with ** for proper exponentiation
-    expression = expression.replace(/\^/g, '**');
-
-    // Evaluate the expression
-    try {
-        cal_view.value = eval(expression);
-    } catch (e) {
-        cal_view.value = "Error";
-    }
-}
+        // Validate the input
+        if (validateInput(expression)) {
+            // Evaluate the expression
+            try {
+                cal_view.val(eval(expression));
+            } catch (e) {
+                cal_view.val("Error");
+                // Clear the error message after 3 seconds
+                setTimeout(function() {
+                    cal_view.val('');
+                }, 3000); // Change the duration as needed
+            }
+        } else {
+            cal_view.val("Error");
+            // Clear the error message after 3 seconds
+            setTimeout(function() {
+                cal_view.val('');
+            }, 2000); // Change the duration as needed
+        }
+    });
+});
