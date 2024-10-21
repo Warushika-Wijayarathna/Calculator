@@ -139,9 +139,11 @@ $(document).ready(function() {
         if (this.checked) {
             $('body').addClass('dark-mode');
             $('.cal-container').addClass('dark-mode');
+            $('#mode-icon').removeClass('fa-sun').addClass('fa-moon');
         } else {
             $('body').removeClass('dark-mode');
             $('.cal-container').removeClass('dark-mode');
+            $('#mode-icon').removeClass('fa-moon').addClass('fa-sun');
         }
     });
 });

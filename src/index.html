@@ -15,11 +15,17 @@
 </head>
 <body>
 
-    <label class="switch">
-        <input type="checkbox" id="mode-toggle">
-        <span class="slider round">
+    <div class="switch-container">
+        <div class="icon">
+            <i class="fa-regular fa-sun" id="mode-icon"></i> <!-- Ensure you use 'fas' for solid icons -->
+        </div>
+        <label class="switch">
+            <input type="checkbox" id="mode-toggle">
+            <span class="slider round">
         </span>
-    </label>
+        </label>
+    </div>
+
     <div class="cal-container">
         <div class="cal-screen">
             <input id="cal-view" type="text" placeholder="0">
