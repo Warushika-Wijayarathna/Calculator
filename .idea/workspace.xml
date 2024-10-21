@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ab7ba3b-accc-4f89-8ede-59535d4dfa04" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Calculator.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scripts/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="0ab7ba3b-accc-4f89-8ede-59535d4dfa04" name="Changes" comment="Calculator creation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,11 +53,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729482205125</updated>
-      <workItem from="1729482206245" duration="16692000" />
+      <workItem from="1729482206245" duration="17003000" />
     </task>
+    <task id="LOCAL-00001" summary="Calculator creation">
+      <option name="closed" value="true" />
+      <created>1729516154636</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1729516154636</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Calculator creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calculator creation" />
   </component>
 </project>
